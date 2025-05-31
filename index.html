@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andyayiti | Luxury Lifestyle Journal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#171717',
+                        'mono-500': '#444444',
+                        'mono-400': '#777777',
+                        'mono-300': '#999999',
+                        'mono-200': '#D0D0D0',
+                        'mono-100': '#F5F5F5',
+                        'mono-50': '#F8F8F8',
+                        'accent-light': '#E0E0E0',
+                        'accent-dark': '#222222'
+                    },
+                    height: {
+                        'screen-90': '90vh',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #F5F5F5;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, .brand, .nav-item, .hero-title {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .post-card:hover .post-img {
+            transform: scale(1.05);
+        }
+        
+        .post-img {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%);
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .video-thumb:hover .video-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .video-thumb:hover .play-icon {
+            transform: scale(1.1);
+        }
+        
+        .play-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+        }
+        
+        .hero-slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .featured-title-bar {
+            background: linear-gradient(to right, rgba(0,0,0,0.7), transparent);
+        }
+        
+        .post-badge {
+            top: 16px;
+            left: 16px;
+        }
+        
+        .animated-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
+        }
+        
+        .hover-effect {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-effect:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .elegant-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .elegant-underline:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #444444;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .elegant-underline:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 1.25rem;
+            }
+            
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-mono-100">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-mono-200">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="brand text-3xl font-black text-charcoal tracking-tighter flex items-center">
+                    <span class="text-mono-400">Andy</span>ayiti
+                    <span class="text-xs font-sans font-normal text-mono-300 uppercase ml-2 border-l border-mono-200 pl-2">Luxury Journal</span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                        Home
+                    </a>
+                    <a href="#blog" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                        Blog
+                    </a>
+                    <a href="#videos" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                       Videos
+                    </a>
+                    <a href="#gallery" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                        Gallery
+                    </a>
+                    <a href="#" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                       About
+                    </a>
+                    <a href="#" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                       Contact
+                    </a>
+                </nav>
+                
+                <div class="flex items-center space-x-6">
+                    <button class="md:hidden text-charcoal">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <button class="text-charcoal hidden md:block hover:text-mono-500 transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="bg-charcoal text-mono-50 px-4 py-2 rounded-sm text-sm font-medium hidden md:block hover:bg-mono-500 transition transform hover:-translate-y-1 border border-mono-500">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <div class="hero-slider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+            <div class="hero-slide-bg" style="background-image: url('https://images.pexels.com/photos/32337079/pexels-photo-32337079/free-photo-of-urban-street-view-with-laundry-and-pedestrians.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"></div>
+            <div class="absolute inset-0 overlay"></div>
+            <div class="relative container mx-auto px-4">
+                <div class="hero-content max-w-2xl pt-16">
+                    <span class="text-white uppercase text-sm tracking-widest font-light flex items-center">
+                        <i class="fas fa-home mr-2"></i>Minimalist Living
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-6 text-white hero-title">The Art of Simplifying Your Space</h1>
+                    <p class="mb-8 text-white/90 max-w-xl font-light text-lg leading-relaxed">Discover how minimalism can transform your living environment and your mindset, creating peace in the chaos of modern life.</p>
+                    <a href="#" class="inline-block bg-white text-charcoal font-medium py-3 px-8 rounded-sm transition hover:bg-mono-500 hover:text-white transform hover:-translate-y-1 border border-mono-500">
+                        <i class="fas fa-book mr-2"></i>Read Article
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('https://images.pexels.com/photos/2954405/pexels-photo-2954405.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+            <div class="absolute inset-0 overlay"></div>
+            <div class="relative container mx-auto px-4">
+                <div class="hero-content max-w-2xl pt-16">
+                    <span class="text-white uppercase text-sm tracking-widest font-light flex items-center">
+                        <i class="fas fa-utensils mr-2"></i>Culinary Journey
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-6 text-white hero-title">Crafting Memories Through Food</h1>
+                    <p class="mb-8 text-white/90 max-w-xl font-light text-lg leading-relaxed">Explore how the rituals of cooking and dining create deeper connections and lasting impressions in our relationships.</p>
+                    <a href="#" class="inline-block bg-white text-charcoal font-medium py-3 px-8 rounded-sm transition hover:bg-mono-500 hover:text-white transform hover:-translate-y-1 border border-mono-500">
+                        <i class="fas fa-utensils mr-2"></i>View Recipes
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('https://images.pexels.com/photos/2835547/pexels-photo-2835547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"></div>
+            <div class="absolute inset-0 overlay"></div>
+            <div class="relative container mx-auto px-4">
+                <div class="hero-content max-w-2xl pt-16">
+                    <span class="text-white uppercase text-sm tracking-widest font-light flex items-center">
+                        <i class="fas fa-globe-americas mr-2"></i>Global Retreats
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-6 text-white hero-title">Discovering Secret Sanctuaries</h1>
+                    <p class="mb-8 text-white/90 max-w-xl font-light text-lg leading-relaxed">Journey with us to hidden corners of the world where time slows down and life reveals its most beautiful patterns.</p>
+                    <a href="#" class="inline-block bg-white text-charcoal font-medium py-3 px-8 rounded-sm transition hover:bg-mono-500 hover:text-white transform hover:-translate-y-1 border border-mono-500">
+                        <i class="fas fa-compass mr-2"></i>Explore More
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="animated-scroll hidden md:block">
+            <div class="flex flex-col items-center">
+                <span class="text-white text-sm mb-2">Scroll to explore</span>
+                <div class="w-8 h-12 rounded-full border-2 border-white flex justify-center p-1">
+                    <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="absolute bottom-12 w-full flex justify-center z-10">
+            <div class="flex space-x-2">
+                <button class="slider-prev w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-mono-500 hover:text-white transition border border-mono-500">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-next w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-mono-500 hover:text-white transition border border-mono-500">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white border-b border-mono-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-charcoal">Our Lifestyle Pillars</h2>
+                <p class="max-w-2xl mx-auto text-mono-400 mt-3">Four fundamental elements that define the Andyayiti experience</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Home & Decor</h3>
+                    <p class="text-mono-400 mb-4">Curating spaces that reflect your essence and uplift your spirit.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+                
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-utensils text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Culinary Arts</h3>
+                    <p class="text-mono-400 mb-4">Recipes as journeys, meals as memories, flavors as stories.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+                
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mountain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Travel & Adventure</h3>
+                    <p class="text-mono-400 mb-4">Discovering destinations that transform perspective and awaken wonder.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+                
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-spa text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mindful Living</h3>
+                    <p class="text-mono-400 mb-4">Practices that ground you in the present while elevating your awareness.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blog Posts -->
+    <section id="blog" class="py-16 bg-mono-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-charcoal">Latest Articles</h2>
+                    <p class="max-w-lg text-mono-400 mt-3">Fresh perspectives and thoughtful insights on luxury living</p>
+                </div>
+                <div>
+                    <a href="#" class="inline-flex items-center text-charcoal font-medium hover:text-mono-500 border-b border-mono-500 pb-1">
+                        <i class="fas fa-book mr-1"></i>View All Articles
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <div class="post-card bg-white border border-mono-200 overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                            alt="Tranquil Interiors" 
+                            class="w-full h-full object-cover post-img">
+                        <span class="absolute top-4 left-4 bg-mono-500 text-white px-3 py-1.5 rounded-sm text-xs font-medium uppercase tracking-widest">Design</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-xs text-mono-400 mb-3">
+                            <span><i class="far fa-calendar mr-1"></i> July 15, 2023</span>
+                            <span class="mx-3 text-mono-200">•</span>
+                            <span><i class="far fa-clock mr-1"></i> 8 min read</span>
+                        </div>
+                        <h3 class="post-title text-xl font-bold mb-3 text-charcoal">The Luxury of Serenity: Creating Peaceful Interiors</h3>
+                        <p class="text-mono-400 mb-4">How to design spaces that promote tranquility and mindfulness in your everyday living.</p>
+                        <a href="#" class="text-charcoal font-medium hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i>Continue Reading
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Post 2 -->
+                <div class="post-card bg-white border border-mono-200 overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.pexels.com/photos/16259491/pexels-photo-16259491/free-photo-of-a-woman-sitting-on-top-of-an-orange-mustang.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                            alt="Minimalist Workspace" 
+                            class="w-full h-full object-cover post-img">
+                        <span class="absolute top-4 left-4 bg-mono-500 text-white px-3 py-1.5 rounded-sm text-xs font-medium uppercase tracking-widest">Work & Life</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-xs text-mono-400 mb-3">
+                            <span><i class="far fa-calendar mr-1"></i> July 12, 2023</span>
+                            <span class="mx-3 text-mono-200">•</span>
+                            <span><i class="far fa-clock mr-1"></i> 7 min read</span>
+                        </div>
+                        <h3 class="post-title text-xl font-bold mb-3 text-charcoal">The Digital Minimalist: Reclaiming Your Attention</h3>
+                        <p class="text-mono-400 mb-4">How creating intentional boundaries with technology can restore focus and enrich your relationships.</p>
+                        <a href="#" class="text-charcoal font-medium hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i>Continue Reading
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Post 3 -->
+                <div class="post-card bg-white border border-mono-200 overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.pexels.com/photos/26859062/pexels-photo-26859062/free-photo-of-pool-in-a-mansion-in-the-evening.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                            alt="Ceramics" 
+                            class="w-full h-full object-cover post-img">
+                        <span class="absolute top-4 left-4 bg-mono-500 text-white px-3 py-1.5 rounded-sm text-xs font-medium uppercase tracking-widest">Lifestyle</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-xs text-mono-400 mb-3">
+                            <span><i class="far fa-calendar mr-1"></i> July 7, 2023</span>
+                            <span class="mx-3 text-mono-200">•</span>
+                            <span><i class="far fa-clock mr-1"></i> 5 min read</span>
+                        </div>
+                        <h3 class="post-title text-xl font-bold mb-3 text-charcoal">Crafted Objects: The Beauty of Imperfection</h3>
+                        <p class="text-mono-400 mb-4">Exploring how handmade pieces bring texture, history, and soul into our environments.</p>
+                        <a href="#" class="text-charcoal font-medium hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i>Continue Reading
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Video Content -->
+    <section id="videos" class="py-16 bg-white border-y border-mono-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-charcoal">Featured Videos</h2>
+                    <p class="max-w-lg text-mono-400 mt-3">Immerse yourself in our visual stories and behind-the-scenes content</p>
+                </div>
+                <div>
+                    <a href="#" class="inline-flex items-center text-charcoal font-medium hover:text-mono-500 border-b border-mono-500 pb-1">
+                        <i class="fas fa-film mr-1"></i>Browse All Videos
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="video-thumb border border-mono-200 bg-white overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative h-80">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Luxury Home Tour" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-mono-500/90 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-medium text-mono-400 uppercase flex items-center">
+                                <i class="fas fa-home mr-1"></i>Home Tour
+                            </span>
+                            <span class="text-xs text-mono-400 bg-mono-100 px-2 py-1 rounded">18:42</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-charcoal">Modernist Retreat on the Mediterranean Coast</h3>
+                        <p class="text-mono-400 text-md">Join us as we tour this architectural masterpiece overlooking the sea.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-thumb border border-mono-200 bg-white overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative h-80">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Culinary Masterclass" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-mono-500/90 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-medium text-mono-400 uppercase flex items-center">
+                                <i class="fas fa-utensils mr-1"></i>Culinary
+                            </span>
+                            <span class="text-xs text-mono-400 bg-mono-100 px-2 py-1 rounded">25:15</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-charcoal">Masterclass in French Pastry Techniques</h3>
+                        <p class="text-mono-400 text-md">Learn the secrets behind perfect puff pastry with a Michelin-star chef.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-thumb border border-mono-200 bg-white overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative h-80">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Wellness Retreat" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-mono-500/90 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-medium text-mono-400 uppercase flex items-center">
+                                <i class="fas fa-spa mr-1"></i>Wellness
+                            </span>
+                            <span class="text-xs text-mono-400 bg-mono-100 px-2 py-1 rounded">32:08</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-charcoal">Mind & Body Retreat in the Swiss Alps</h3>
+                        <p class="text-mono-400 text-md">Discover holistic wellness practices in a breathtaking mountain setting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Gallery -->
+    <section id="gallery" class="py-16 bg-mono-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-charcoal">Visual Inspiration</h2>
+                <p class="max-w-2xl mx-auto text-mono-400 mt-3">Captured moments that celebrate the art of refined living</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.pexels.com/photos/2127733/pexels-photo-2127733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Reading corner"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-home mr-1"></i>INTERIORS</span>
+                            <span class="font-bold">Sunlight & Shadow</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.pexels.com/photos/32337079/pexels-photo-32337079/free-photo-of-urban-street-view-with-laundry-and-pedestrians.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Breakfast"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-utensils mr-1"></i>CUISINE</span>
+                            <span class="font-bold">Morning Ritual</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Fashion"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-tshirt mr-1"></i>STYLE</span>
+                            <span class="font-bold">Texture & Form</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Architecture"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-archway mr-1"></i>ARCHITECTURE</span>
+                            <span class="font-bold">Geometric Balance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-charcoal font-medium hover:text-mono-500 border-b border-mono-500 pb-1">
+                    <i class="fas fa-image mr-2"></i>View Complete Collection
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-charcoal border-t border-mono-500">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center text-mono-50">
+                <div class="w-16 h-16 rounded-full border border-mono-300 flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-envelope text-2xl text-mono-300"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+                <p class="mb-8 opacity-90 max-w-lg mx-auto">Subscribe to receive exclusive essays, curated content, and first access to our visual stories.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-grow px-5 py-4 rounded-sm focus:outline-none focus:ring-2 focus:ring-mono-300 text-charcoal">
+                    <button type="submit" class="bg-mono-300 text-charcoal font-semibold px-6 py-4 rounded-sm hover:bg-opacity-90 transition transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i>Subscribe
+                    </button>
+                </form>
+                <p class="mt-4 text-sm opacity-75">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-mono-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="brand text-3xl font-black text-charcoal mb-4">Andyayiti</div>
+                    <p class="mb-6 text-mono-400">Exploring the art of living with intention, beauty, and purpose.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-mono-200 flex items-center justify-center text-charcoal hover:bg-mono-500 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-mono-200 flex items-center justify-center text-charcoal hover:bg-mono-500 hover:text-white">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-mono-200 flex items-center justify-center text-charcoal hover:bg-mono-500 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-mono-200 flex items-center justify-center text-charcoal hover:bg-mono-500 hover:text-white">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-charcoal font-bold mb-5 text-lg"><i class="fas fa-tags mr-2"></i>Categories</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Home & Decor
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Culinary Arts
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Travel Journals
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Mindful Practices
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Design & Craft
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Sustainable Living
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-charcoal font-bold mb-5 text-lg"><i class="fas fa-compass mr-2"></i>Explore</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>About Andyayiti
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Contributors
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Photo Archive
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Press Features
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Privacy Policy
+                        </a></li>
+                        <li><a href="#" class="text-mono-400 hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-chevron-right mr-2 text-xs"></i>Terms of Use
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-charcoal font-bold mb-5 text-lg"><i class="fas fa-headset mr-2"></i>Contact</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-mono-400"></i>
+                            <span>editorial@andyayiti.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-mono-400"></i>
+                            <span>Creative Studio, Seattle, WA</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t border-mono-200">
+                        <p class="text-sm text-mono-400">For collaborations and features:</p>
+                        <a href="#" class="inline-flex items-center text-charcoal font-medium hover:text-mono-500 mt-2">
+                            partnerships@andyayiti.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-mono-200 mt-16 pt-6 text-center">
+                <p class="text-mono-400 text-sm">&copy; 2023 Andyayiti Lifestyle Journal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const prevButton = document.querySelector('.slider-prev');
+            const nextButton = document.querySelector('.slider-next');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto slide
+            let slideInterval = setInterval(nextSlide, 7000);
+            
+            // Button controls
+            nextButton.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                nextSlide();
+                slideInterval = setInterval(nextSlide, 7000);
+            });
+            
+            prevButton.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                prevSlide();
+                slideInterval = setInterval(nextSlide, 7000);
+            });
+            
+            // Initialize first slide
+            showSlide(currentSlide);
+            
+            // Video Play Button
+            const videoButtons = document.querySelectorAll('.play-icon').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Video playback would start here. This is a placeholder functionality.');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 90,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Scroll animation effect for cards
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.post-card, .video-thumb, .category-card, .gallery-item').forEach(card => {
+                card.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
