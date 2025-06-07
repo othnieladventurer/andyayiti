@@ -1,0 +1,248 @@
+{% extends 'andyayiti/base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Videos Header -->
+    <div class="relative h-96 bg-charcoal flex items-center justify-center pt-16">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559703248-dca2ecf88354?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-30"></div>
+        <div class="relative container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Video Stories</h1>
+            <p class="text-xl max-w-2xl mx-auto">Immersive visual narratives about luxury, design and culture</p>
+        </div>
+    </div>
+
+
+    <!-- Video Gallery -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold">Featured Videos</h2>
+                <div class="flex space-x-4">
+                    <button class="px-4 py-2 bg-mono-500 text-white rounded-sm font-medium">All Videos</button>
+                    <button class="px-4 py-2 border border-mono-200 rounded-sm font-medium hover:bg-mono-100">Most Viewed</button>
+                    <button class="px-4 py-2 border border-mono-200 rounded-sm font-medium hover:bg-mono-100">Latest</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="video-thumb hover-effect">
+                    <div class="relative overflow-hidden rounded-lg h-64">
+                        <img src="https://images.unsplash.com/photo-1559703248-dca2ecf88354?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Luxury Villa Tour" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center text-charcoal text-2xl">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 right-4 bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest">Tour</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs text-mono-400 mb-2">
+                            <span><i class="far fa-calendar mr-1"></i> June 12, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-eye mr-1"></i> 24K views</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-charcoal">Inside a $15M Miami Beach Villa</h3>
+                        <p class="text-mono-400 mb-4">An exclusive tour of this architectural masterpiece with ocean views.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Host" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-sm text-mono-400">James Rodriguez</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-thumb hover-effect">
+                    <div class="relative overflow-hidden rounded-lg h-64">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Wine Tasting" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center text-charcoal text-2xl">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 right-4 bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest">Food</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs text-mono-400 mb-2">
+                            <span><i class="far fa-calendar mr-1"></i> May 28, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-eye mr-1"></i> 18K views</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-charcoal">The Art of Wine Tasting in Tuscany</h3>
+                        <p class="text-mono-400 mb-4">Learn the secrets of Italian winemaking from a master sommelier.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Host" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-sm text-mono-400">Sophia Bianchi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-thumb hover-effect">
+                    <div class="relative overflow-hidden rounded-lg h-64">
+                        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Watchmaking" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center text-charcoal text-2xl">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 right-4 bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest">Craft</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs text-mono-400 mb-2">
+                            <span><i class="far fa-calendar mr-1"></i> May 15, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-eye mr-1"></i> 32K views</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-charcoal">The Craft of Swiss Watchmaking</h3>
+                        <p class="text-mono-400 mb-4">Behind the scenes at a legendary Geneva watch manufacturer.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Host" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-sm text-mono-400">Henri Dubois</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button class="px-6 py-3 border border-mono-300 rounded-sm font-medium hover:bg-mono-100 transition">
+                    Load More Videos <i class="fas fa-arrow-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Videos -->
+    <section class="py-16 bg-mono-50 border-t border-mono-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">You Might Also Like</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Video 4 -->
+                <div class="video-thumb hover-effect">
+                    <div class="relative overflow-hidden rounded-lg h-64">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Private Jet" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center text-charcoal text-2xl">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 right-4 bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest">Travel</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs text-mono-400 mb-2">
+                            <span><i class="far fa-calendar mr-1"></i> April 30, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-eye mr-1"></i> 42K views</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-charcoal">A Day in the Life: Private Jet Experience</h3>
+                        <p class="text-mono-400 mb-4">From check-in to champagne service at 40,000 feet.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Host" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-sm text-mono-400">Emma Laurent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-thumb hover-effect">
+                    <div class="relative overflow-hidden rounded-lg h-64">
+                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Michelin Dining" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center text-charcoal text-2xl">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 right-4 bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest">Dining</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs text-mono-400 mb-2">
+                            <span><i class="far fa-calendar mr-1"></i> April 18, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-eye mr-1"></i> 36K views</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-charcoal">Behind the Scenes at a 3-Michelin Star Kitchen</h3>
+                        <p class="text-mono-400 mb-4">The precision and passion that goes into every dish.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Host" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-sm text-mono-400">Chef Marco</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-thumb hover-effect">
+                    <div class="relative overflow-hidden rounded-lg h-64">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Superyacht" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center text-charcoal text-2xl">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <span class="absolute top-4 right-4 bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest">Boating</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center text-xs text-mono-400 mb-2">
+                            <span><i class="far fa-calendar mr-1"></i> April 5, 2023</span>
+                            <span class="mx-2">•</span>
+                            <span><i class="fas fa-eye mr-1"></i> 29K views</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-charcoal">Luxury Superyacht Tour: The $100M Odyssey</h3>
+                        <p class="text-mono-400 mb-4">Exploring the most exclusive features of this floating palace.</p>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Host" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-sm text-mono-400">Captain Duval</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-charcoal border-t border-mono-500 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center text-mono-50">
+                <div class="w-16 h-16 rounded-full border border-mono-300 flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-envelope text-2xl text-mono-300"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+                <p class="mb-8 opacity-90 max-w-lg mx-auto">Subscribe to receive exclusive essays, curated content, and first access to our visual stories.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-grow px-5 py-4 rounded-sm focus:outline-none focus:ring-2 focus:ring-mono-300 text-charcoal">
+                    <button type="submit" class="bg-mono-300 text-charcoal font-semibold px-6 py-4 rounded-sm hover:bg-opacity-90 transition transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i>Subscribe
+                    </button>
+                </form>
+                <p class="mt-4 text-sm opacity-75">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+    
+{% endblock content %}

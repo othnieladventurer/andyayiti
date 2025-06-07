@@ -1,0 +1,203 @@
+/* Mobile Menu Styles */
+.mobile-menu {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu a {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+}
+
+h1, h2, h3, h4, .brand, .nav-item, .hero-title {
+    font-family: 'Playfair Display', serif;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.post-card:hover .post-img {
+    transform: scale(1.05);
+}
+
+.post-img {
+    transition: transform 0.3s ease;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.gallery-item img {
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.video-thumb:hover .video-overlay {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.video-thumb:hover .play-icon {
+    transform: scale(1.1);
+}
+
+.play-icon {
+    transition: transform 0.3s ease;
+}
+
+.hero-slider {
+    position: relative;
+    height: 100vh;
+}
+
+.hero-slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.featured-title-bar {
+    background: linear-gradient(to right, rgba(0,0,0,0.7), transparent);
+}
+
+.post-badge {
+    top: 16px;
+    left: 16px;
+}
+
+.animated-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+    40% {transform: translateY(-20px) translateX(-50%);}
+    60% {transform: translateY(-10px) translateX(-50%);}
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
+}
+
+.hover-effect {
+    transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.elegant-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.elegant-underline:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #444444;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.elegant-underline:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+@media (max-width: 768px) {
+    .post-title {
+        font-size: 1.25rem;
+    }
+    
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}

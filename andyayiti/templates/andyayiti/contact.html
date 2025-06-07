@@ -1,0 +1,135 @@
+{% extends 'andyayiti/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Videos Header -->
+    <div class="relative h-96 bg-charcoal flex items-center justify-center pt-16">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-30"></div>
+        <div class="relative container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Let's Connect</h1>
+            <p class="text-xl max-w-2xl mx-auto">We'd love to hear from you - questions, collaborations, or just to say hello</p>
+        </div>
+    </div>
+
+
+
+    <!-- Contact Page -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-charcoal mb-4">Get In Touch</h2>
+                <p class="text-mono-400 text-lg max-w-2xl mx-auto">
+                    We'd love to hear from you. Whether you have a question, suggestion, or collaboration idea, 
+                    our team is ready to connect.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold text-charcoal mb-4">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-mono-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-mono-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-charcoal">Email</h4>
+                                <p class="text-mono-400">hello@andyayiti.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-mono-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt text-mono-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-charcoal">Phone</h4>
+                                <p class="text-mono-400">+1 (206) 555-0199</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-mono-100 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-mono-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-charcoal">Studio</h4>
+                                <p class="text-mono-400">1234 Design Avenue<br>Seattle, WA 98101</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h4 class="font-bold text-lg mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full border border-mono-200 flex items-center justify-center text-charcoal hover:bg-mono-500 hover:text-white">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-mono-200 flex items-center justify-center text-charcoal hover:bg-mono-500 hover:text-white">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-mono-200 flex items-center justify-center text-charcoal hover:bg-mono-500 hover:text-white">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-charcoal mb-4">Send Us a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-mono-500 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-mono-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-mono-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-mono-500 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-mono-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-mono-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-mono-500 mb-1">Subject</label>
+                            <select id="subject" class="w-full px-4 py-3 border border-mono-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-mono-500">
+                                <option>General Inquiry</option>
+                                <option>Collaboration</option>
+                                <option>Press</option>
+                                <option>Advertising</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-mono-500 mb-1">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-mono-200 rounded-sm focus:outline-none focus:ring-1 focus:ring-mono-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-charcoal text-white px-6 py-3 rounded-sm font-medium hover:bg-mono-500 transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="py-16 bg-charcoal border-t border-mono-500 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center text-mono-50">
+                <div class="w-16 h-16 rounded-full border border-mono-300 flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-envelope text-2xl text-mono-300"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+                <p class="mb-8 opacity-90 max-w-lg mx-auto">Subscribe to receive exclusive essays, curated content, and first access to our visual stories.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-grow px-5 py-4 rounded-sm focus:outline-none focus:ring-2 focus:ring-mono-300 text-charcoal">
+                    <button type="submit" class="bg-mono-300 text-charcoal font-semibold px-6 py-4 rounded-sm hover:bg-opacity-90 transition transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i>Subscribe
+                    </button>
+                </form>
+                <p class="mt-4 text-sm opacity-75">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock content %}

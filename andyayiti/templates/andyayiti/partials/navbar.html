@@ -1,0 +1,76 @@
+<!-- Header -->
+<header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-mono-200">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <div class="brand text-3xl font-black text-charcoal tracking-tighter flex items-center">
+    
+                <a href="/"> <span class="text-mono-400">Andy</span>Ayiti</a>
+                <span class="text-xs font-sans font-normal text-mono-300 uppercase ml-2 border-l border-mono-200 pl-2 text-red-300">Luxury Journal</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="{% url 'andyayiti:index' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                    Home
+                </a>
+                <a href="{% url 'andyayiti:blog' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                    Blog
+                </a>
+                <a href="{% url 'andyayiti:videos' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                    Videos
+                </a>
+                <a href="{% url 'andyayiti:gallery' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                    Gallery
+                </a>
+                <a href="{% url 'andyayiti:about' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                    About
+                </a>
+                <a href="{% url 'andyayiti:contact' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium elegant-underline">
+                    Contact
+                </a>
+            </nav>
+            
+            <div class="flex items-center space-x-6">
+                <button class="md:hidden text-charcoal mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <button class="text-charcoal hidden md:block hover:text-mono-500 transition">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="bg-charcoal text-mono-50 px-4 py-2 rounded-sm text-sm font-medium hidden md:block hover:bg-mono-500 transition transform hover:-translate-y-1 border border-mono-500">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu hidden fixed inset-0 z-40 bg-white pt-24 px-4 overflow-y-auto">
+    <div class="container mx-auto">
+        <nav class="flex flex-col space-y-6 py-6">
+            <a href="{% url 'andyayiti:index' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium text-xl">
+                Home
+            </a>
+            <a href="{% url 'andyayiti:blog' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium text-xl">
+                Blog
+            </a>
+            <a href="{% url 'andyayiti:videos' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium text-xl">
+                Videos
+            </a>
+            <a href="{% url 'andyayiti:gallery' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium text-xl">
+                Gallery
+            </a>
+            <a href="{% url 'andyayiti:about' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium text-xl">
+                About
+            </a>
+            <a href="{% url 'andyayiti:contact' %}" class="nav-item text-charcoal hover:text-mono-500 transition font-medium text-xl">
+                Contact
+            </a>
+        </nav>
+        <div class="pt-8 border-t border-mono-200">
+            <button class="w-full bg-charcoal text-mono-50 px-6 py-3 rounded-sm text-base font-medium hover:bg-mono-500 transition">
+                Subscribe
+            </button>
+        </div>
+    </div>
+</div>

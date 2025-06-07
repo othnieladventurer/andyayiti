@@ -1,0 +1,199 @@
+{% extends 'andyayiti/base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+    <!-- Videos Header -->
+    <div class="relative h-96 bg-charcoal flex items-center justify-center pt-16">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-30"></div>
+        <div class="relative container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">The Art of Luxury</h1>
+            <p class="text-xl max-w-2xl mx-auto">A visual journey through the world's most exquisite spaces and designs</p>
+        </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold text-charcoal">Featured Collections</h2>
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 border border-mono-200 rounded-sm text-sm font-medium hover:bg-mono-100">All</button>
+                    <button class="px-4 py-2 border border-mono-200 rounded-sm text-sm font-medium hover:bg-mono-100">Architecture</button>
+                    <button class="px-4 py-2 border border-mono-200 rounded-sm text-sm font-medium hover:bg-mono-100">Interiors</button>
+                    <button class="px-4 py-2 border border-mono-200 rounded-sm text-sm font-medium hover:bg-mono-100">Travel</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-96">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Modern Villa" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <span class="bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest mb-2 inline-block">Architecture</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Cliffside Modernism</h3>
+                            <p class="text-mono-100">A breathtaking villa overlooking the Mediterranean</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-96">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Luxury Interior" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <span class="bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest mb-2 inline-block">Interiors</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Minimalist Elegance</h3>
+                            <p class="text-mono-100">Tokyo penthouse with curated art collection</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-96">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Resort Pool" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <span class="bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest mb-2 inline-block">Travel</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Island Sanctuary</h3>
+                            <p class="text-mono-100">Private resort in the Maldives</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-96">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Mountain Chalet" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <span class="bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest mb-2 inline-block">Architecture</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Alpine Retreat</h3>
+                            <p class="text-mono-100">Contemporary chalet in the Swiss Alps</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-96">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Penthouse View" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <span class="bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest mb-2 inline-block">Interiors</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Urban Panorama</h3>
+                            <p class="text-mono-100">New York penthouse with skyline views</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-96">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Desert Oasis" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <span class="bg-white text-charcoal px-3 py-1 rounded-sm text-xs font-medium uppercase tracking-widest mb-2 inline-block">Travel</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Desert Modern</h3>
+                            <p class="text-mono-100">Architectural gem in Palm Springs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button class="px-6 py-3 border border-mono-300 rounded-sm font-medium hover:bg-mono-100 transition">
+                    View More Collections <i class="fas fa-arrow-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Collections -->
+    <section class="py-16 bg-mono-50 border-t border-mono-200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12">More Photo Collections</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Design Hotels" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Design Hotels 2023</h3>
+                            <p class="text-mono-100">24 photos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Private Islands" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Private Island Retreats</h3>
+                            <p class="text-mono-100">18 photos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="gallery-item group relative overflow-hidden rounded-lg h-80">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Mountain Homes" 
+                         class="w-full h-full object-cover gallery-img">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Alpine Architecture</h3>
+                            <p class="text-mono-100">32 photos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-charcoal border-t border-mono-500 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center text-mono-50">
+                <div class="w-16 h-16 rounded-full border border-mono-300 flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-envelope text-2xl text-mono-300"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+                <p class="mb-8 opacity-90 max-w-lg mx-auto">Subscribe to receive exclusive essays, curated content, and first access to our visual stories.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-grow px-5 py-4 rounded-sm focus:outline-none focus:ring-2 focus:ring-mono-300 text-charcoal">
+                    <button type="submit" class="bg-mono-300 text-charcoal font-semibold px-6 py-4 rounded-sm hover:bg-opacity-90 transition transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i>Subscribe
+                    </button>
+                </form>
+                <p class="mt-4 text-sm opacity-75">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+

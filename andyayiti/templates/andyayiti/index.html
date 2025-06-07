@@ -1,0 +1,398 @@
+{% extends 'andyayiti/base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+    <!-- Hero Slider -->
+    <div class="hero-slider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+            <div class="hero-slide-bg" style="background-image: url('https://images.pexels.com/photos/32337079/pexels-photo-32337079/free-photo-of-urban-street-view-with-laundry-and-pedestrians.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"></div>
+            <div class="absolute inset-0 overlay"></div>
+            <div class="relative container mx-auto px-4">
+                <div class="hero-content max-w-2xl pt-16">
+                    <span class="text-white uppercase text-sm tracking-widest font-light flex items-center">
+                        <i class="fas fa-home mr-2"></i>Minimalist Living
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-6 text-white hero-title">The Art of Simplifying Your Space</h1>
+                    <p class="mb-8 text-white/90 max-w-xl font-light text-lg leading-relaxed">Discover how minimalism can transform your living environment and your mindset, creating peace in the chaos of modern life.</p>
+                    <a href="#" class="inline-block bg-white text-charcoal font-medium py-3 px-8 rounded-sm transition hover:bg-mono-500 hover:text-white transform hover:-translate-y-1 border border-mono-500">
+                        <i class="fas fa-book mr-2"></i>Read Article
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('https://images.pexels.com/photos/2954405/pexels-photo-2954405.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
+            <div class="absolute inset-0 overlay"></div>
+            <div class="relative container mx-auto px-4">
+                <div class="hero-content max-w-2xl pt-16">
+                    <span class="text-white uppercase text-sm tracking-widest font-light flex items-center">
+                        <i class="fas fa-utensils mr-2"></i>Culinary Journey
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-6 text-white hero-title">Crafting Memories Through Food</h1>
+                    <p class="mb-8 text-white/90 max-w-xl font-light text-lg leading-relaxed">Explore how the rituals of cooking and dining create deeper connections and lasting impressions in our relationships.</p>
+                    <a href="#" class="inline-block bg-white text-charcoal font-medium py-3 px-8 rounded-sm transition hover:bg-mono-500 hover:text-white transform hover:-translate-y-1 border border-mono-500">
+                        <i class="fas fa-utensils mr-2"></i>View Recipes
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+            <div class="hero-slide-bg" style="background-image: url('https://images.pexels.com/photos/2835547/pexels-photo-2835547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"></div>
+            <div class="absolute inset-0 overlay"></div>
+            <div class="relative container mx-auto px-4">
+                <div class="hero-content max-w-2xl pt-16">
+                    <span class="text-white uppercase text-sm tracking-widest font-light flex items-center">
+                        <i class="fas fa-globe-americas mr-2"></i>Global Retreats
+                    </span>
+                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-6 text-white hero-title">Discovering Secret Sanctuaries</h1>
+                    <p class="mb-8 text-white/90 max-w-xl font-light text-lg leading-relaxed">Journey with us to hidden corners of the world where time slows down and life reveals its most beautiful patterns.</p>
+                    <a href="#" class="inline-block bg-white text-charcoal font-medium py-3 px-8 rounded-sm transition hover:bg-mono-500 hover:text-white transform hover:-translate-y-1 border border-mono-500">
+                        <i class="fas fa-compass mr-2"></i>Explore More
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <!-- Slider Controls -->
+        <div class="absolute bottom-12 w-full flex justify-center z-10">
+            <div class="flex space-x-2">
+                <button class="slider-prev w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-mono-500 hover:text-white transition border border-mono-500">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-next w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-mono-500 hover:text-white transition border border-mono-500">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-white border-b border-mono-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-charcoal">Our Lifestyle Pillars</h2>
+                <p class="max-w-2xl mx-auto text-mono-400 mt-3">Four fundamental elements that define the Andyayiti experience</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Home & Decor</h3>
+                    <p class="text-mono-400 mb-4">Curating spaces that reflect your essence and uplift your spirit.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+                
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-utensils text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Culinary Arts</h3>
+                    <p class="text-mono-400 mb-4">Recipes as journeys, meals as memories, flavors as stories.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+                
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mountain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Travel & Adventure</h3>
+                    <p class="text-mono-400 mb-4">Discovering destinations that transform perspective and awaken wonder.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+                
+                <div class="category-card border border-mono-200 bg-white p-8 rounded-sm text-center transition hover:shadow-lg hover-effect">
+                    <div class="w-16 h-16 bg-mono-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-spa text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mindful Living</h3>
+                    <p class="text-mono-400 mb-4">Practices that ground you in the present while elevating your awareness.</p>
+                    <a href="#" class="text-charcoal font-medium hover:text-mono-500 inline-flex items-center">
+                        <i class="fas fa-search mr-1"></i>Explore
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blog Posts -->
+    <section id="blog" class="py-16 bg-mono-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-charcoal">Latest Articles</h2>
+                    <p class="max-w-lg text-mono-400 mt-3">Fresh perspectives and thoughtful insights on luxury living</p>
+                </div>
+                <div>
+                    <a href="#" class="inline-flex items-center text-charcoal font-medium hover:text-mono-500 border-b border-mono-500 pb-1">
+                        <i class="fas fa-book mr-1"></i>View All Articles
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <div class="post-card bg-white border border-mono-200 overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                            alt="Tranquil Interiors" 
+                            class="w-full h-full object-cover post-img">
+                        <span class="absolute top-4 left-4 bg-mono-500 text-white px-3 py-1.5 rounded-sm text-xs font-medium uppercase tracking-widest">Design</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-xs text-mono-400 mb-3">
+                            <span><i class="far fa-calendar mr-1"></i> July 15, 2023</span>
+                            <span class="mx-3 text-mono-200">•</span>
+                            <span><i class="far fa-clock mr-1"></i> 8 min read</span>
+                        </div>
+                        <h3 class="post-title text-xl font-bold mb-3 text-charcoal">The Luxury of Serenity: Creating Peaceful Interiors</h3>
+                        <p class="text-mono-400 mb-4">How to design spaces that promote tranquility and mindfulness in your everyday living.</p>
+                        <a href="#" class="text-charcoal font-medium hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i>Continue Reading
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Post 2 -->
+                <div class="post-card bg-white border border-mono-200 overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.pexels.com/photos/16259491/pexels-photo-16259491/free-photo-of-a-woman-sitting-on-top-of-an-orange-mustang.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                            alt="Minimalist Workspace" 
+                            class="w-full h-full object-cover post-img">
+                        <span class="absolute top-4 left-4 bg-mono-500 text-white px-3 py-1.5 rounded-sm text-xs font-medium uppercase tracking-widest">Work & Life</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-xs text-mono-400 mb-3">
+                            <span><i class="far fa-calendar mr-1"></i> July 12, 2023</span>
+                            <span class="mx-3 text-mono-200">•</span>
+                            <span><i class="far fa-clock mr-1"></i> 7 min read</span>
+                        </div>
+                        <h3 class="post-title text-xl font-bold mb-3 text-charcoal">The Digital Minimalist: Reclaiming Your Attention</h3>
+                        <p class="text-mono-400 mb-4">How creating intentional boundaries with technology can restore focus and enrich your relationships.</p>
+                        <a href="#" class="text-charcoal font-medium hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i>Continue Reading
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Post 3 -->
+                <div class="post-card bg-white border border-mono-200 overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.pexels.com/photos/26859062/pexels-photo-26859062/free-photo-of-pool-in-a-mansion-in-the-evening.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                            alt="Ceramics" 
+                            class="w-full h-full object-cover post-img">
+                        <span class="absolute top-4 left-4 bg-mono-500 text-white px-3 py-1.5 rounded-sm text-xs font-medium uppercase tracking-widest">Lifestyle</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-xs text-mono-400 mb-3">
+                            <span><i class="far fa-calendar mr-1"></i> July 7, 2023</span>
+                            <span class="mx-3 text-mono-200">•</span>
+                            <span><i class="far fa-clock mr-1"></i> 5 min read</span>
+                        </div>
+                        <h3 class="post-title text-xl font-bold mb-3 text-charcoal">Crafted Objects: The Beauty of Imperfection</h3>
+                        <p class="text-mono-400 mb-4">Exploring how handmade pieces bring texture, history, and soul into our environments.</p>
+                        <a href="#" class="text-charcoal font-medium hover:text-mono-500 transition flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i>Continue Reading
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Video Content -->
+    <section id="videos" class="py-16 bg-white border-y border-mono-200">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-charcoal">Featured Videos</h2>
+                    <p class="max-w-lg text-mono-400 mt-3">Immerse yourself in our visual stories and behind-the-scenes content</p>
+                </div>
+                <div>
+                    <a href="#" class="inline-flex items-center text-charcoal font-medium hover:text-mono-500 border-b border-mono-500 pb-1">
+                        <i class="fas fa-film mr-1"></i>Browse All Videos
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video 1 -->
+                <div class="video-thumb border border-mono-200 bg-white overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative h-80">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Luxury Home Tour" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-mono-500/90 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-medium text-mono-400 uppercase flex items-center">
+                                <i class="fas fa-home mr-1"></i>Home Tour
+                            </span>
+                            <span class="text-xs text-mono-400 bg-mono-100 px-2 py-1 rounded">18:42</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-charcoal">Modernist Retreat on the Mediterranean Coast</h3>
+                        <p class="text-mono-400 text-md">Join us as we tour this architectural masterpiece overlooking the sea.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-thumb border border-mono-200 bg-white overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative h-80">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Culinary Masterclass" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-mono-500/90 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-medium text-mono-400 uppercase flex items-center">
+                                <i class="fas fa-utensils mr-1"></i>Culinary
+                            </span>
+                            <span class="text-xs text-mono-400 bg-mono-100 px-2 py-1 rounded">25:15</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-charcoal">Masterclass in French Pastry Techniques</h3>
+                        <p class="text-mono-400 text-md">Learn the secrets behind perfect puff pastry with a Michelin-star chef.</p>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-thumb border border-mono-200 bg-white overflow-hidden transition hover:shadow-lg hover-effect">
+                    <div class="relative h-80">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                             alt="Wellness Retreat" 
+                             class="w-full h-full object-cover">
+                        <div class="video-overlay">
+                            <div class="play-icon w-16 h-16 bg-mono-500/90 rounded-full flex items-center justify-center">
+                                <i class="fas fa-play text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-medium text-mono-400 uppercase flex items-center">
+                                <i class="fas fa-spa mr-1"></i>Wellness
+                            </span>
+                            <span class="text-xs text-mono-400 bg-mono-100 px-2 py-1 rounded">32:08</span>
+                        </div>
+                        <h3 class="text-xl font-bold mt-3 mb-3 text-charcoal">Mind & Body Retreat in the Swiss Alps</h3>
+                        <p class="text-mono-400 text-md">Discover holistic wellness practices in a breathtaking mountain setting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Gallery -->
+    <section id="gallery" class="py-16 bg-mono-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-charcoal">Visual Inspiration</h2>
+                <p class="max-w-2xl mx-auto text-mono-400 mt-3">Captured moments that celebrate the art of refined living</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.pexels.com/photos/2127733/pexels-photo-2127733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Reading corner"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-home mr-1"></i>INTERIORS</span>
+                            <span class="font-bold">Sunlight & Shadow</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.pexels.com/photos/32337079/pexels-photo-32337079/free-photo-of-urban-street-view-with-laundry-and-pedestrians.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                         alt="Breakfast"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-utensils mr-1"></i>CUISINE</span>
+                            <span class="font-bold">Morning Ritual</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Fashion"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-tshirt mr-1"></i>STYLE</span>
+                            <span class="font-bold">Texture & Form</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item border border-mono-200">
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Architecture"
+                         class="w-full h-full object-cover">
+                    <div class="gallery-overlay">
+                        <div class="text-white text-center px-4">
+                            <span class="text-xs font-medium block mb-1"><i class="fas fa-archway mr-1"></i>ARCHITECTURE</span>
+                            <span class="font-bold">Geometric Balance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-charcoal font-medium hover:text-mono-500 border-b border-mono-500 pb-1">
+                    <i class="fas fa-image mr-2"></i>View Complete Collection
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-charcoal border-t border-mono-500">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center text-mono-50">
+                <div class="w-16 h-16 rounded-full border border-mono-300 flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-envelope text-2xl text-mono-300"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+                <p class="mb-8 opacity-90 max-w-lg mx-auto">Subscribe to receive exclusive essays, curated content, and first access to our visual stories.</p>
+                
+                <form class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-grow px-5 py-4 rounded-sm focus:outline-none focus:ring-2 focus:ring-mono-300 text-charcoal">
+                    <button type="submit" class="bg-mono-300 text-charcoal font-semibold px-6 py-4 rounded-sm hover:bg-opacity-90 transition transform hover:-translate-y-1">
+                        <i class="fas fa-paper-plane mr-2"></i>Subscribe
+                    </button>
+                </form>
+                <p class="mt-4 text-sm opacity-75">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
