@@ -37,8 +37,13 @@ SECRET_KEY = 'django-insecure-+#n8ro4q#50(m@sw__9napjvs1$#-77jto8w8$&p_*ci1#jm_q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'andyayiti-production.up.railway.app', 'andyayiti.com', 'andyayiti.saasiskey.com']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.andyayiti.saasiskey.com',
+    'https://andyayiti.saasiskey.com',
+    'https://andyayiti-production.up.railway.app'
+]
 
 # Application definition
 
