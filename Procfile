@@ -1,1 +1,1 @@
-web: gunicorn andyayiti.wsgi
+web: gunicorn core.wsgi
