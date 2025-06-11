@@ -27,7 +27,9 @@ SERVICE_ACCOUNT_FILE = os.path.join(BASE_DIR, 'credentials', 'service_account.js
 
 
 
+import logging
 
+logging.basicConfig(level=logging.DEBUG)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -37,7 +39,7 @@ SECRET_KEY = 'django-insecure-+#n8ro4q#50(m@sw__9napjvs1$#-77jto8w8$&p_*ci1#jm_q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'andyayiti-production.up.railway.app', 'andyayiti.com', ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'andyayiti-production.up.railway.app','andyayiti.com', 'www.andyayiti.com' ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://www.andyayiti.com',
